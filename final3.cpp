@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h>    //that library is good for Release, but not for other collaborators
 #include <conio.h>
 #include <windows.h>
 
-using namespace std;
-
+using namespace std;        //consider removing this line and use std::
+                            //bringing all the names from the std namespace into the global namespace. This can lead to name collisions
 #define MAXLEN 1000
 
 const char DIR_UP = 72;
@@ -169,7 +169,7 @@ public:
 };
 
 int main() {
-    srand(time(0));
+    srand(  static_cast<unsigned int>(time(0))    );      //fixed warning about possible data loss;    pls read about year 2038 problem 32-bit systems
     initscreen();
     board* Board = new board();
     while (Board->update()) {
